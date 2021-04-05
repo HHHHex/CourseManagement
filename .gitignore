@@ -1,0 +1,12 @@
+.idea
+.packages
+.flutter-plugins
+.flutter-plugins
+.flutter-plugins-dependencies
+.dart_tool/
+boxing_lessons.iml
+ios/
+build/
+android/
+gen/
+test/
