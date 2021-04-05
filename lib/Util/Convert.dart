@@ -1,23 +1,18 @@
 //import 'package:intl/intl.dart';
+import 'package:date_format/date_format.dart';
 
 extension DateConvert on DateTime {
 
   String dayString() {
-    return "";
-    // var formatter = new DateFormat('yyyy年MM月dd日');
-    // return formatter.format(this);
+    return formatDate(this, [yyyy, '年', mm, '月', dd, '日']);
   }
 
   String dayHour() {
-    return "";
-    // var formatter = new DateFormat('yyyy年MM月dd日 a h:mm');
-    // return formatter.format(this);
+    return formatDate(this, [yyyy, '年', mm, '月', dd, am, hh, ':', mm]);
   }
 
   String sortHour() {
-    return "";
-    // var formatter = new DateFormat('a h:mm');
-    // return formatter.format(this);
+    return formatDate(this, [am, hh, ':', mm]);
   }
 }
 

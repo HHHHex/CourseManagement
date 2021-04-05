@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="91319f67-4728-4ff1-ab23-a7fd646dae74" name="Default Changelist" comment="" />
+    <list default="true" id="91319f67-4728-4ff1-ab23-a7fd646dae74" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Util/Convert.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Util/Convert.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,5 +49,23 @@
       <updated>1617639060945</updated>
     </task>
     <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1199" height="258" key="GridCell.Tab.0.bottom" timestamp="1617641017740">
+      <screen x="0" y="25" width="1680" height="967" />
+    </state>
+    <state width="1199" height="258" key="GridCell.Tab.0.bottom/0.25.1680.967@0.25.1680.967" timestamp="1617641017740" />
+    <state width="1199" height="258" key="GridCell.Tab.0.center" timestamp="1617641017739">
+      <screen x="0" y="25" width="1680" height="967" />
+    </state>
+    <state width="1199" height="258" key="GridCell.Tab.0.center/0.25.1680.967@0.25.1680.967" timestamp="1617641017739" />
+    <state width="1199" height="258" key="GridCell.Tab.0.left" timestamp="1617641017739">
+      <screen x="0" y="25" width="1680" height="967" />
+    </state>
+    <state width="1199" height="258" key="GridCell.Tab.0.left/0.25.1680.967@0.25.1680.967" timestamp="1617641017739" />
+    <state width="1199" height="258" key="GridCell.Tab.0.right" timestamp="1617641017740">
+      <screen x="0" y="25" width="1680" height="967" />
+    </state>
+    <state width="1199" height="258" key="GridCell.Tab.0.right/0.25.1680.967@0.25.1680.967" timestamp="1617641017740" />
   </component>
 </project>
