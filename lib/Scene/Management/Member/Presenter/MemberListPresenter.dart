@@ -20,7 +20,7 @@ class MemberListPresenter {
   Future<void> fetchData(String string) async {
     String sql;
     if (string.length == 0) {
-      sql = 'SELECT * FROM ${DataBaseManager.member} LIMIT 10';
+      sql = 'SELECT * FROM ${DataBaseManager.member}';
     } else {
       sql = 'SELECT * FROM ${DataBaseManager.member} WHERE member_name LIKE \'%${string}%\' LIMIT 10';
     }

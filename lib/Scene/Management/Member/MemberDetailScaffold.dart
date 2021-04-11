@@ -1,6 +1,7 @@
 import 'package:boxing_lessons/General/Scaffold/TableDetailScaffold.dart';
 import 'package:boxing_lessons/General/Widget/InfoSelectionItem.dart';
 import 'package:boxing_lessons/General/Widget/InputTextDialog.dart';
+import 'package:boxing_lessons/General/Widget/ItemSelectDialog.dart';
 import 'package:boxing_lessons/Scene/Management/Engage/View/EngageListScaffold.dart';
 import 'package:boxing_lessons/Scene/Management/Member/Model/MemberDetailModel.dart';
 import 'package:boxing_lessons/Scene/Management/Member/Presenter/MemberDetailPresenter.dart';
@@ -159,11 +160,11 @@ class _MemberDetailScaffoldState extends TableDetailScaffoldState<MemberDetailSc
     if (this.widget.type == TableDetailType.scan) {
       return;
     }
-    // showInputTextDialog(context, _model.name, (str){
-    //   setState(() {
-    //     _model.name = str;
-    //   });
-    // });
+    showItemSelectDialog(context, ['男', '女'], (index){
+      setState(() {
+        _memberModel.gender = index;
+      });
+    });
   }
 
   Future<void> _onSelectBirthday(BuildContext context) async {

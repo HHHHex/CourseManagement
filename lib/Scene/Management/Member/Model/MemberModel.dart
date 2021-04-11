@@ -8,7 +8,7 @@ class MemberModel extends TableModel {
 
   String name = '';
 
-  int gender = 1;
+  int gender = 0;
 
   int birthDay = DateTime(1990).millisecondsSinceEpoch;
 

@@ -20,9 +20,9 @@ class Convert {
 
   static String genderWithInt(int i){
     if (i == 0) {
-      return '女';
-    } else if (i == 1) {
       return '男';
+    } else if (i == 1) {
+      return '女';
     } else {
       return '未知';
     }
