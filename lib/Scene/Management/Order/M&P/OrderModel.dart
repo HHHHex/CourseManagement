@@ -3,7 +3,14 @@ import 'package:boxing_lessons/Scene/Management/Coach/M&P/CoachModel.dart';
 import 'package:boxing_lessons/Scene/Management/Lessons/M&P/LessonModel.dart';
 import 'package:boxing_lessons/Scene/Management/Member/Model/MemberModel.dart';
 
+enum OrderType {
+  lesson, // 0
+  duration, // 1
+}
+
 class OrderModel extends TableModel {
+
+  OrderType type = OrderType.lesson;
 
   int memberId = 0;
 
@@ -35,6 +42,8 @@ class OrderModel extends TableModel {
 
   OrderModel.withMap(Map map) {
     this.id = map['id'] ?? 0;
+    var type =  map['order_type'] ?? 0;
+    this.type = OrderType.values[type];
     this.descript = map['descript'] ?? '';
     this.coachId = map['coach_id'] ?? 0;
     this.memberId = map['member_id'] ?? 0;

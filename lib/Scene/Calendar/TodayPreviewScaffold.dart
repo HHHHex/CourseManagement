@@ -144,10 +144,9 @@ class _TodayPreviewScaffoldState extends State<TodayPreviewScaffold> with Automa
     if (datePicker == null) {
       return;
     }
-    var selectDate = new DateTime(datePicker.year, datePicker.month, datePicker.day, 0, 0, 0);
-    setState(() {
-      _date = selectDate;
-    });
+    var selectDate = new DateTime(datePicker.year, datePicker.month, datePicker.day, 1, 0, 0);
+    _date = selectDate;
+    _fetchData();
   }
 
   void _fetchData() {

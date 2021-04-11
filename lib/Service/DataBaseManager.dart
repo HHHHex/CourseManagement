@@ -26,8 +26,8 @@ class DataBaseManager {
   final _dbName = 'USER.db';
   final _sql_create_table_lesson = 'CREATE TABLE $lesson (id INTEGER PRIMARY KEY, lesson_name TEXT, duration REAL, price REAL, coach_id INTEGER, descript TEXT, create_time INTEGER, modify_time INTEGER)';
   final _sql_create_table_coach = 'CREATE TABLE $coach (id INTEGER PRIMARY KEY, coach_name TEXT, number Text, gender INTEGER, descript TEXT, create_time INTEGER, modify_time INTEGER)';
-  final _sql_create_table_member = 'CREATE TABLE $member (id INTEGER PRIMARY KEY, member_name TEXT, gender INTEGER, birth_day INTEGER, contact TEXT, coach_id INTEGER, descript TEXT, create_time INTEGER, modify_time INTEGER)';
-  final _sql_create_table_order = 'CREATE TABLE $order (id INTEGER PRIMARY KEY, member_id INTEGER, coach_id INTEGER, lesson_id INTEGER, total_times INTEGER, remain_times INTEGER, single_price REAL, earning REAL, expire_time INTEGER, descript TEXT, create_time INTEGER, modify_time INTEGER)';
+  final _sql_create_table_member = 'CREATE TABLE $member (id INTEGER PRIMARY KEY, member_name TEXT, pin_yin TEXT, gender INTEGER, birth_day INTEGER, contact TEXT, coach_id INTEGER, descript TEXT, create_time INTEGER, modify_time INTEGER)';
+  final _sql_create_table_order = 'CREATE TABLE $order (id INTEGER PRIMARY KEY, order_type INTEGER, member_id INTEGER, coach_id INTEGER, lesson_id INTEGER, total_times INTEGER, remain_times INTEGER, single_price REAL, earning REAL, expire_time INTEGER, descript TEXT, create_time INTEGER, modify_time INTEGER)';
   final _sql_create_table_engage = 'CREATE TABLE $engage (id INTEGER PRIMARY KEY, member_id INTEGER, order_id INTEGER, coach_id INTEGER, lesson_id INTEGER, start_time INTEGER, duration REAL, descript TEXT, create_time INTEGER, modify_time INTEGER, state INTEGER)';
   final _sql_create_table_remind = 'CREATE TABLE $remind (id INTEGER PRIMARY KEY, refer_id INTEGER, type INTEGER, state INTEGER, create_time INTEGER, update_time INTEGER)';
 
