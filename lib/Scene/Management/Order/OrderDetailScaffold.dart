@@ -17,8 +17,16 @@ import 'package:boxing_lessons/Util/Convert.dart';
 
 class OrderDetailScaffold extends TableDetailScaffold {
 
+  OrderType _initType;
+
   OrderDetailScaffold.withId(int id): super.withId(id);
-  OrderDetailScaffold.add() : super.add();
+
+  OrderDetailScaffold.addTimeOrder() : super.add() {
+    _initType = OrderType.duration;
+  }
+  OrderDetailScaffold.addLessonOrder() : super.add() {
+    _initType = OrderType.lesson;
+  }
 
   @override
   TableDetailScaffoldState<TableDetailScaffold> getState() =>  _OrderDetailScaffoldState();
@@ -44,6 +52,7 @@ class _OrderDetailScaffoldState extends TableDetailScaffoldState<OrderDetailScaf
       });
     } else {
       _model = OrderModel();
+      _model.type = this.widget._initType;
     }
   }
 
@@ -54,7 +63,11 @@ class _OrderDetailScaffoldState extends TableDetailScaffoldState<OrderDetailScaf
         title = '合同详情';
         break;
       case TableDetailType.add:
-        title = '新增合同';
+        if (_model.type == OrderType.lesson) {
+          title = '课程合同';
+        } else if (_model.type == OrderType.duration) {
+          title = '时间合同';
+        }
         break;
       case TableDetailType.edit:
         title = '编辑';
@@ -84,35 +97,42 @@ class _OrderDetailScaffoldState extends TableDetailScaffoldState<OrderDetailScaf
           onTap: (){
             _onSelectCoach(context);
           }),
-      InfoSelectionItem(
-          isRequ: true,
-          info:'课程',
-          detail: _model.lesson.name,
-          onTap: (){
-            _onSelectLesson(context);
-          }),
-      InfoSelectionItem(
-          isRequ: true,
-          info:'总量',
-          detail: '${_model.totalTimes} 节',
-          onTap: (){
-            _onSelectTotalTimes(context);
-          }),
-      InfoSelectionItem(
-          isRequ: true,
-          type: _pageCellType(),
-          info:'进度',
-          detail: '${_model.remainTimes} / ${_model.totalTimes} 节',
-          onTap: (){
-            _onSelectRemianTimes(context);
-          }),
-      InfoSelectionItem(
-          isRequ: true,
-          info:'单价',
-          detail: "￥${_model.siglePrice.toString()}",
-          onTap: (){
-            _onSelectPrice(context);
-          }),
+    ];
+    if (_model.type == OrderType.lesson) {
+      List<Widget> lessonItems = [
+        InfoSelectionItem(
+            isRequ: true,
+            info:'课程',
+            detail: _model.lesson.name,
+            onTap: (){
+              _onSelectLesson(context);
+            }),
+        InfoSelectionItem(
+            isRequ: true,
+            info:'总量',
+            detail: '${_model.totalTimes} 节',
+            onTap: (){
+              _onSelectTotalTimes(context);
+            }),
+        InfoSelectionItem(
+            isRequ: true,
+            type: _pageCellType(),
+            info:'进度',
+            detail: '${_model.remainTimes} / ${_model.totalTimes} 节',
+            onTap: (){
+              _onSelectRemianTimes(context);
+            }),
+        InfoSelectionItem(
+            isRequ: true,
+            info:'单价',
+            detail: "￥${_model.siglePrice.toString()}",
+            onTap: (){
+              _onSelectPrice(context);
+            }),
+      ];
+      items..addAll(lessonItems);
+    }
+    List<Widget> generalItems = [
       InfoSelectionItem(
           isRequ: true,
           info:'实收 / 应收',
@@ -135,10 +155,9 @@ class _OrderDetailScaffoldState extends TableDetailScaffoldState<OrderDetailScaf
             _onSelectDescript(context);
           }),
     ];
-    if (this.widget.type == TableDetailType.add ||
-        this.widget.type == TableDetailType.edit) {
-      return items;
-    } else {
+    items..addAll(generalItems);
+
+    if (this.widget.type == TableDetailType.scan) {
       List<Widget> scanItems = [
         InfoSelectionItem(
           isRequ: false,
@@ -151,8 +170,9 @@ class _OrderDetailScaffoldState extends TableDetailScaffoldState<OrderDetailScaf
           detail: DateTime.fromMillisecondsSinceEpoch(_model.modifyTime).dayHour(),
         ),
       ];
-      return items..addAll(scanItems);
+      items..addAll(scanItems);
     }
+    return items;
   }
 
   InfoSelectionItemType _pageCellType() {

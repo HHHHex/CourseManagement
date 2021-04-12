@@ -23,8 +23,11 @@ class AdminSettingsScaffold extends StatelessWidget {
           _adminListItem(Icons.person_sharp, '会员', '查看和添加会员', (){
             Navigator.of(context).push(MaterialPageRoute(builder: (context) => MemberListScaffold()));
           }),
-          _adminListItem(Icons.sticky_note_2_sharp, '创建合同', '创建一个新的合同', (){
-            Navigator.of(context).push(MaterialPageRoute(builder: (context) => OrderDetailScaffold.add()));
+          _adminListItem(Icons.sticky_note_2_sharp, '创建课程合同', '创建一个新的课程合同', (){
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) => OrderDetailScaffold.addLessonOrder()));
+          }),
+          _adminListItem(Icons.update, '创建时间合同', '创建一个新的时间合同', (){
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) => OrderDetailScaffold.addTimeOrder()));
           }),
         ],
       ),
