@@ -129,14 +129,21 @@ class _OrderDetailScaffoldState extends TableDetailScaffoldState<OrderDetailScaf
             onTap: (){
               _onSelectPrice(context);
             }),
+        InfoSelectionItem(
+            isRequ: true,
+            info:'实收 / 应收',
+            detail: "实收：￥${_model.earning.toString()}  应收：￥${_model.totalPrice.toString()}",
+            onTap: (){
+              _onSelectEaring(context);
+            }),
       ];
       items..addAll(lessonItems);
     }
     List<Widget> generalItems = [
       InfoSelectionItem(
           isRequ: true,
-          info:'实收 / 应收',
-          detail: "实收：￥${_model.earning.toString()}  应收：￥${_model.totalPrice.toString()}",
+          info:'收款',
+          detail: "￥${_model.earning.toString()}",
           onTap: (){
             _onSelectEaring(context);
           }),

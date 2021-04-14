@@ -18,7 +18,7 @@ class OrderListPresenter {
 
   Future<void> fetchOrdersWithMemberId(int memberId) async {
     Database db = await openDatabase(DataBaseManager.shared().dbPath);
-    List<Map> list = await db.rawQuery('SELECT * FROM ${DataBaseManager.order} WHERE member_id = ${memberId}');
+    List<Map> list = await db.rawQuery('SELECT * FROM ${DataBaseManager.order} WHERE member_id = ${memberId} AND order_type = 0');
     List<OrderModel> orders = OrderModel.modesFromList(list);
     for(var i = 0; i < orders.length; i++) {
       OrderModel order = orders[i];

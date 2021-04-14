@@ -17,7 +17,8 @@ class OrderDetailPresenter {
   Future<void> addOrder(OrderModel order) async {
     Database db = await openDatabase(DataBaseManager.shared().dbPath);
     String sql =
-        "INSERT INTO ${DataBaseManager.order}(member_id, coach_id, lesson_id, total_times, remain_times, descript, create_time, modify_time, single_price, earning, expire_time) VALUES("
+        "INSERT INTO ${DataBaseManager.order}(order_type, member_id, coach_id, lesson_id, total_times, remain_times, descript, create_time, modify_time, single_price, earning, expire_time) VALUES("
+        "'${order.type.index}',"
         "'${order.memberId}',"
         "'${order.coachId}',"
         "'${order.lessonId}',"

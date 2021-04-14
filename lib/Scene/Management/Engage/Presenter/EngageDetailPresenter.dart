@@ -44,20 +44,23 @@ class EngageDetailPresenter {
   }
 
   Future<void> setupByMember(MemberModel member) async {
+
     this.model.member = member;
     this.model.memberId = member.id;
     Database db = await openDatabase(DataBaseManager.shared().dbPath);
-    List<Map> list = await db.rawQuery('SELECT * FROM ${DataBaseManager.order} WHERE member_id = ${this.model.memberId} ORDER BY modify_time LIMIT 1');
-    var order = OrderModel.modesFromList(list).first;
-    this.model.order = order;
-    this.model.orderId = order.id;
-    LessonModel lesson = await DataBaseManager.shared().fetchLesson(order.lessonId, false);
-    this.model.lesson = lesson;
-    this.model.lessonId = lesson.id;
-    CoachModel coach  = await DataBaseManager.shared().fetchCoach(order.coachId, false);
-    this.model.coach = coach;
-    this.model.coachId = coach.id;
-    this.model.duration = lesson.duration;
+    List<Map> list = await db.rawQuery('SELECT * FROM ${DataBaseManager.order} WHERE member_id = ${this.model.memberId} AND order_type = 0 ORDER BY modify_time LIMIT 1');
+    if (list.length != 0) {
+      var order = OrderModel.modesFromList(list).first;
+      this.model.order = order;
+      this.model.orderId = order.id;
+      LessonModel lesson = await DataBaseManager.shared().fetchLesson(order.lessonId, false);
+      this.model.lesson = lesson;
+      this.model.lessonId = lesson.id;
+      CoachModel coach  = await DataBaseManager.shared().fetchCoach(order.coachId, false);
+      this.model.coach = coach;
+      this.model.coachId = coach.id;
+      this.model.duration = lesson.duration;
+    }
     await db.close();
     if (this.attachView != null) {
       this.attachView.reloadWithEngage();

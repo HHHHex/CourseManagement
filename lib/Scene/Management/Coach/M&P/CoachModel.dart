@@ -6,7 +6,7 @@ class CoachModel extends TableModel {
 
   String number = '';
 
-  int gender = 1;
+  int gender = 0;
 
   CoachModel(){}
 

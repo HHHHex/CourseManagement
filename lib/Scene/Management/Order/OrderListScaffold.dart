@@ -72,10 +72,17 @@ class _OrderListScaffoldState extends ListScaffoldState<OrderListScaffold>  impl
   @override
   Widget getItemAtIndex(int index) {
     OrderModel model = this.widget.list[index];
-    return listItem(
-        Icons.sticky_note_2_sharp,
-        "${model.lesson.name}(${DateTime.fromMillisecondsSinceEpoch(model.createTime).dayString()})",
-        "${model.remainTimes} / ${model.totalTimes}", index);
+    if (model.type == OrderType.duration) {
+      return listItem(
+          Icons.sticky_note_2_sharp,
+          "(${DateTime.fromMillisecondsSinceEpoch(model.createTime).dayString()})",
+          "${DateTime.fromMillisecondsSinceEpoch(model.expireTime).dayString()}到期", index);
+    } else {
+      return listItem(
+          Icons.sticky_note_2_sharp,
+          "${model.lesson.name}(${DateTime.fromMillisecondsSinceEpoch(model.createTime).dayString()})",
+          "${model.remainTimes} / ${model.totalTimes}", index);
+    }
   }
 
   @override

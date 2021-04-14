@@ -9,7 +9,7 @@ class AdminSettingsScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Admin"),
+        title: Text("管理"),
       ),
       body: ListView(
         padding: EdgeInsets.all(10),
